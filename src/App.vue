@@ -1,30 +1,34 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <v-app>
+    <v-app-bar height="50" color="primary">
+      <router-link to="/" >Home</router-link>
+      <v-spacer></v-spacer>
+      <router-link to="/cart">
+        <v-badge
+        color="error"
+        :content="cartItemCount">
+              <v-icon icon="mdi-cart" size="x-large"></v-icon>
+            </v-badge>
+      </router-link>
+      <router-link to="/about">About</router-link>
+    </v-app-bar>
+    <v-main>
+      <router-view/>
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import { mapGetters } from 'vuex' 
+export default {
+  name: 'App',
 
-nav {
-  padding: 30px;
-}
+  data: () => ({
+    //
+  }),
+  computed:{
+    ...mapGetters(['cartItemCount'])
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+  }
 }
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+</script>
