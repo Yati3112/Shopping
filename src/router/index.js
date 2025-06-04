@@ -1,11 +1,29 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import OrderProductView from '@/views/OrderProductView.vue'
+import DetailsView from '@/views/DetailsView.vue'
+import PayBillView from '@/views/PayBillView.vue'
 
 const routes = [
   {
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/cart',
+    name: 'Cart',
+    component: OrderProductView
+  },
+  {
+    path: '/bill',
+    name: 'bill',
+    component: PayBillView
+  },
+  {
+    path: '/details:item',
+    name: 'details',
+    component: DetailsView
   },
   {
     path: '/about',
